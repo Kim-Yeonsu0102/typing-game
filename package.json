@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^0.25.0",
+    "toastify-js": "^1.11.2"
+  },
+  "name": "typing-master",
+  "version": "1.0.0",
+  "description": "typing game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

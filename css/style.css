@@ -1,0 +1,93 @@
+                @font-face {
+                    font-family: 'SBAggroB';
+                    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+                    font-weight: normal;
+                    font-style: normal;
+                }
+                
+                @font-face {
+                    font-family: 'SBAggroM';
+                    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+                    font-weight: normal;
+                    font-style: normal;
+                }
+                
+                * {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    box-sizing: border-box;
+                    ;
+                }
+                
+                body {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    height: 100vh;
+                    text-align: center;
+                }
+                
+                .header {
+                    width: 100%;
+                    text-align: center;
+                    padding: 1rem;
+                    background: linear-gradient(-45deg, #c181c4, #588bcf);
+                    color: #fff;
+                    font-family: 'SBAggroB';
+                }
+                
+                .word-display {
+                    margin-top: 3rem;
+                    font-size: 3rem;
+                    color: #9d0ca5;
+                    font-family: 'SBAggroB';
+                }
+                
+                .word-input-box {
+                    margin-top: 2rem;
+                }
+                
+                .word-input {
+                    padding: 0.5rem;
+                    width: 80%;
+                    border-radius: 5px;
+                    border: 1px solid #c181c4;
+                    font-size: 1.8rem;
+                }
+                
+                .game-info {
+                    margin-top: 0.5rem;
+                }
+                
+                .game-info>div {
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    letter-spacing: -1px;
+                }
+                
+                .game-info>div span {
+                    font-weight: bold;
+                    font-size: 1.6rem;
+                }
+                
+                .game-info>div:nth-child(1) {
+                    color: #b90d0d;
+                }
+                
+                .game-info>div:nth-child(2) {
+                    color: #588bcf;
+                }
+                
+                .button {
+                    margin-top: 2rem;
+                    width: 60%;
+                    padding: 1.6rem;
+                    border-radius: 5px;
+                    background: #c181c4;
+                    color: #fff;
+                    font-size: 1.2rem;
+                    letter-spacing: 0.5px;
+                    font-family: 'SBAggroM';
+                }
