@@ -106,7 +106,6 @@ const checkMach = () => {
 
 //event handler
 function run() {
-    bar.classList.add("animation");
     reset();
     timeInterval = setInterval(countDown, 1000);
     checkMach();
