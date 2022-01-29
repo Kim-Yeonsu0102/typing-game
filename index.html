@@ -2,35 +2,41 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>타이핑게임</title>
-    <script src="node_modules/toastify-js/src/toastify.js"></script>
-    <link rel="stylesheet" href="node_modules/toastify-js/src/toastify.css">
-    <!-- <link rel="stylesheet" href="css/reset.css"> -->
-    <link rel="stylesheet" href="css/style.css">
+    <script src="js/node_modules/toastify-js/src/toastify.js"></script>
+    <link rel="stylesheet" href="js/node_modules/toastify-js/src/toastify.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
     <div class="header">
-        <h1>되어보자! 타이핑 마스터!</h1>
+        <h1>백지한 명대사 타자게임</h1>
     </div>
+
+    <div class="progress">
+        <div class="progress__bar"></div>
+    </div>
+
     <div class="section">
-        <div class="word-display">
-            Hello
-        </div>
-        <div class="word-input-box">
-            <input type="text" class="word-input">
+        <div id="check_btn" class=" word-display">띄어쓰기, 문장기호 다 맞아야 함 </div>
+        <div class="word-input-box ">
+            <input type="text" class="word-input" />
         </div>
         <div class="game-info">
-            <div>남은 시간 :<span class="time"> 0 </span>초</div>
-            <div>획득 점수 :<span class="time"> 0 </span>점</div>
+            <div>남은 시간 :<span class="time">  </span>초</div>
+            <div>획득 점수 :<span class="score"> 0 </span>점</div>
         </div>
-        <button class="button loading" onclick="run()">게임을 불러오는중...</button>
+
+        <button id="btn" class="button" onclick="run()">
+        Start
+      </button>
+        <button id="stop" class="button02 loading" onclick="stopTime()">stop</button>
     </div>
     <script src="js/game.js"></script>
-
 </body>
 
 </html>

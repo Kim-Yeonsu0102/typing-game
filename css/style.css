@@ -6,8 +6,15 @@
                 }
                 
                 @font-face {
-                    font-family: 'SBAggroM';
-                    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+                    font-family: 'SUIT-Medium';
+                    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+                    font-weight: normal;
+                    font-style: normal;
+                }
+                
+                @font-face {
+                    font-family: 'Goyang';
+                    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff');
                     font-weight: normal;
                     font-style: normal;
                 }
@@ -17,7 +24,6 @@
                     padding: 0;
                     border: 0;
                     box-sizing: border-box;
-                    ;
                 }
                 
                 body {
@@ -27,6 +33,7 @@
                     align-items: center;
                     height: 100vh;
                     text-align: center;
+                    width: 100%
                 }
                 
                 .header {
@@ -35,36 +42,99 @@
                     padding: 1rem;
                     background: linear-gradient(-45deg, #c181c4, #588bcf);
                     color: #fff;
-                    font-family: 'SBAggroB';
+                    font-size: 1.2rem;
+                    letter-spacing: 2px;
+                    font-family: 'SUIT-Medium';
+                    ;
+                }
+                /* 프로그래스 바 */
+                
+                .progress {
+                    margin: 2px auto;
+                    padding: 2px;
+                    width: 100%;
+                    max-width: 100%;
+                    border: 1px solid #fff;
+                    height: 20px;
+                    background: #e9e9e9
+                }
+                
+                .progress .progress__bar {
+                    height: 100%;
+                    width: 100%;
+                }
+                
+                .animation {
+                    animation: fill-bar 120s infinite;
+                }
+                
+                @keyframes fill-bar {
+                    0% {
+                        width: 100%;
+                        background-color: #588bcf;
+                    }
+                    20% {
+                        background-color: #9d0ca5;
+                    }
+                    50% {
+                        background-color: rgb(255, 208, 0);
+                    }
+                    70% {
+                        background-color: rgb(255, 115, 0);
+                    }
+                    100% {
+                        width: 0%;
+                        background-color: #ff0000;
+                    }
+                }
+                /* 게임 플레이 존 */
+                
+                .section {
+                    min-width: 80%;
+                    width: 90%;
                 }
                 
                 .word-display {
-                    margin-top: 3rem;
-                    font-size: 3rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 80%;
+                    margin-top: 5rem;
+                    font-size: 2rem;
+                    letter-spacing: -0.5px;
+                    word-break: keep-all;
                     color: #9d0ca5;
-                    font-family: 'SBAggroB';
+                    font-family: 'SUIT-Medium';
+                    min-height: 120px;
                 }
                 
                 .word-input-box {
-                    margin-top: 2rem;
+                    margin-top: 4rem;
+                    min-width: 98%;
                 }
                 
                 .word-input {
+                    width: 100%;
+                    min-height: 30px;
                     padding: 0.5rem;
-                    width: 80%;
                     border-radius: 5px;
                     border: 1px solid #c181c4;
-                    font-size: 1.8rem;
+                    font-size: 1.3rem;
                 }
                 
                 .game-info {
-                    margin-top: 0.5rem;
+                    margin: 1rem auto 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%
                 }
                 
                 .game-info>div {
                     font-size: 1.2rem;
                     font-weight: 400;
                     letter-spacing: -1px;
+                    width: 50%;
                 }
                 
                 .game-info>div span {
@@ -81,13 +151,39 @@
                 }
                 
                 .button {
-                    margin-top: 2rem;
-                    width: 60%;
-                    padding: 1.6rem;
+                    margin-top: 1.5rem;
+                    width: 65%;
+                    padding: 1rem 1.6rem;
                     border-radius: 5px;
                     background: #c181c4;
                     color: #fff;
                     font-size: 1.2rem;
                     letter-spacing: 0.5px;
-                    font-family: 'SBAggroM';
+                    font-family: 'Goyang';
+                    cursor: pointer;
+                }
+                
+                .button02 {
+                    margin-top: 1.5rem;
+                    width: 65%;
+                    padding: 1rem 1.6rem;
+                    border-radius: 5px;
+                    background: #ff406a;
+                    color: #fff;
+                    font-size: 1.2rem;
+                    letter-spacing: 0.5px;
+                    font-family: 'Goyang';
+                    cursor: pointer;
+                }
+                
+                .loading {
+                    color: #929292;
+                    cursor: not-allowed;
+                    background: #eaeaea;
+                    letter-spacing: 2px;
+                    font-weight: bold;
+                }
+                
+                .hidden {
+                    visibility: hidden;
                 }
