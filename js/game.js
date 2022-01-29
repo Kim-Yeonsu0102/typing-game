@@ -61,9 +61,9 @@ function reset() {
     wordDisplay.innerText = words[randomIndex];
 }
 //제한시간
-
+time = 120;
 const countDown = () => {
-    time = 120;
+
     if (time > 0) {
         time--;
 
@@ -82,7 +82,7 @@ const countDown = () => {
 //게임시작
 
 const checkMach = () => {
-    bar.classList.add("animation");
+
 
     let inputValue = wordInput.value.toLowerCase();
     let wordDisplayTxt = wordDisplay.innerText.toLowerCase();
@@ -106,11 +106,15 @@ const checkMach = () => {
 
 //event handler
 function run() {
+    bar.classList.add("animation");
     reset();
     timeInterval = setInterval(countDown, 1000);
     checkMach();
+    wordInput.addEventListener("input", checkMach);
+
     btn.disabled = true;
     stopBtn.disabled = false;
+
 }
 
 function stopTime() {
@@ -119,5 +123,3 @@ function stopTime() {
         timeReset();
     }
 }
-
-wordInput.addEventListener("input", checkMach);
