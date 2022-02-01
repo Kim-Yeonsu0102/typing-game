@@ -14,6 +14,7 @@ const stopBtn = document.getElementById("stop");
 const button = document.querySelector(".button");
 const bar = document.querySelector(".progress__bar");
 const checkBtn = document.getElementById("check_btn");
+const lastScoreNum = document.querySelector(".lastScore");
 
 
 
@@ -37,16 +38,13 @@ runToast = (text) => {
 
 
 const gerWords = () => {
-    axios
-        .get(url)
-        .then((res) => {
-            words = res.data.filter((word) => word.length < 8);
-            button.innerText = "Start";
-            stopBtn.disabled = true;
-            stopBtn.classList.remove("loading");
-            isPlaying = true;
-        })
-        .catch((err) => console.log(err));
+    axios.get(url).then((res) => {
+        words = res.data.filter((word) => word.length < 8);
+        button.innerText = "Start";
+        stopBtn.disabled = true;
+        stopBtn.classList.remove("loading");
+        isPlaying = true;
+    }).catch((err) => console.log(err));
 };
 const init = () => {
     time = SETTING_TIME;
@@ -60,16 +58,13 @@ const lastScore = () => {
     let lastScoreTxt = `최종 스코어 <br/> <span class="lastScore"> ${scoreDisplay.innerText+"점"} </span>  `;
 
     wordDisplay.innerHTML = lastScoreTxt;
-    wordDisplay.classList.add("fontSize")
+    wordDisplay.classList.add("lastScoreText")
     wordDisplay.style.color = "#999";
-    // wordDisplay.style.fontSize = "2rem"
 
-
-    // score.style.color = "#598bcf";
 };
 const resetDisplayTxt = () => {
     wordDisplay.style.color = "#9d0ca5";
-    wordDisplay.classList.remove("fontSize")
+    wordDisplay.classList.remove("lastScoreText")
     const randomIndex = Math.floor(Math.random() * words.length);
     wordDisplay.innerText = words[randomIndex];
 };
