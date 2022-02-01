@@ -2,21 +2,19 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>타이핑게임</title>
-    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="#" />
     <script src="/node_modules/axios/dist/axios.js"></script>
     <script src="/node_modules/toastify-js/src/toastify.js"></script>
-    <link rel="stylesheet" href="/node_modules/toastify-js/src/toastify.css">
+    <link rel="stylesheet" href="/node_modules/toastify-js/src/toastify.css" />
 
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body ondragstart="return false" onselectstart="return false">
-
     <div class="header">
         <h1>Let's Typing Game!!</h1>
     </div>
@@ -26,10 +24,10 @@
     </div>
 
     <div class="section">
-        <div id="check_btn" class=" word-display fontSize">
+        <div id="check_btn" class="word-display">
             API , Toastify 사용하기 Project
         </div>
-        <div class="word-input-box ">
+        <div class="word-input-box">
             <input type="text" class="word-input" />
         </div>
         <div class="game-info">
@@ -37,12 +35,12 @@
             <div>획득 점수 :<span class="score"> 0 </span>점</div>
         </div>
 
-        <button id="btn" class="button" onclick="run()">
-        Start
+        <button id="btn" class="button" onclick="run()">Start</button>
+        <button id="stop" class="button02 loading" onclick="stopTime()">
+        stop
       </button>
-        <button id="stop" class="button02 loading" onclick="stopTime()">stop</button>
     </div>
-    <script src="js/game.js"></script>
+    <script src="/js/game.js"></script>
 </body>
 
 </html>

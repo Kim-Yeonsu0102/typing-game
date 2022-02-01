@@ -14,7 +14,9 @@ const stopBtn = document.getElementById("stop");
 const button = document.querySelector(".button");
 const bar = document.querySelector(".progress__bar");
 const checkBtn = document.getElementById("check_btn");
-const lastScoreNum = document.querySelector(".lastScore");
+
+
+
 
 runToast = (text) => {
     const option = {
@@ -22,14 +24,17 @@ runToast = (text) => {
         duration: 1000,
         newWindow: true,
         offset: {
-            x: 0,
-            y: 120,
+            x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: 120 // vertical axis - can be a number or a string indicating unity. eg: '2em'
         },
-        position: "center",
-    };
+        position: 'center',
 
-    Toastify(option).showToast();
-};
+    }
+
+    Toastify(option).showToast()
+
+}
+
 
 const gerWords = () => {
     axios
@@ -50,6 +55,7 @@ const init = () => {
 
 //게임초기화
 
+
 const lastScore = () => {
     let lastScoreTxt = `최종 스코어 <br/> <span class="lastScore"> ${scoreDisplay.innerText+"점"} </span>  `;
 
@@ -68,6 +74,8 @@ const resetDisplayTxt = () => {
     wordDisplay.innerText = words[randomIndex];
 };
 
+
+
 function timeReset() {
     clearInterval(timeInterval);
     wordInput.removeEventListener("input", checkMach);
@@ -78,10 +86,13 @@ function timeReset() {
 
     btn.disabled = false;
     stopBtn.disabled = true;
+
+
 }
 
 function reset() {
-    resetDisplayTxt();
+    resetDisplayTxt()
+
 
     time = SETTING_TIME;
     score = 0;
@@ -95,10 +106,13 @@ function reset() {
     }
 
     wordInput.value = "";
+    const randomIndex = Math.floor(Math.random() * words.length);
+    wordDisplay.innerText = words[randomIndex];
 }
 //제한시간
 
 const countDown = () => {
+
     if (time > 0) {
         time--;
 
@@ -109,10 +123,14 @@ const countDown = () => {
     if (time == 0) {
         timeReset();
         lastScore();
+
+
     } else {
         wordInput.addEventListener("input", checkMach);
         bar.classList.add("animation");
+
     }
+
 };
 
 //게임시작
@@ -123,13 +141,16 @@ const checkMach = () => {
 
     if (inputValue === wordDisplayTxt) {
         score += 10;
-        runToast("Great!!");
+        runToast("Great!!")
+
 
         wordInput.value = "";
         const randomIndex = Math.floor(Math.random() * words.length);
 
         wordDisplay.innerText = words[randomIndex];
     }
+
+
 
     scoreDisplay.innerText = score;
 
@@ -165,6 +186,9 @@ function stopTime() {
 
 init();
 
+
+
+
 // const mediaSize = window.matchMedia('(min-width: 768px)');
 // const changeMedia = (e) => {
 //     if (e.matches) {
@@ -172,6 +196,7 @@ init();
 //         console.log('매치됨');
 //     }
 // }
+
 
 // changeMedia(mediaSize);
 
