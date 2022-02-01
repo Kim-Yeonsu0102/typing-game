@@ -1,20 +1,5 @@
 const SETTING_TIME = 120;
 let words = [];
-let words02 = [
-    "넌 신 같은 거 될 수도 없고, 되어서도 안 돼.",
-    "끝과 시작의 밤에, 한 편의 이야기를 지어 비밀로 간직하라.",
-    "상서로운 짐승과 선인이 살아나 이야기의 주인을 찾으리니.",
-    "그러니까 나랑 만나. 앞으로 세 번.",
-    "애초에 내 관심사는 너 하나야.",
-    "빌어먹을 선하 자식이 벌여 놓은 일은 내가 수습하지.",
-    "그럼 내 집으로 와.",
-    "비켜. 난 내 반려를 보러왔으니까.",
-    "난 네가 수 천 번 날 바람 맞혀도 화 안나.",
-    "가재나 게 같은 걸 별로 안 좋아하는 것뿐이야.",
-    "제가 당신을 얼마나 열렬히 흠모하고 사랑하는지를 말씀드리지 않을 수가 없습니다.",
-    "김자크 사랑합니다.",
-    "",
-];
 let time;
 let isPlaying = false;
 let score = 0;
@@ -43,13 +28,13 @@ runToast = (text) => {
             y: 120 // vertical axis - can be a number or a string indicating unity. eg: '2em'
         },
         position: 'center',
-        backgroundColor: 'linear-gradient(45deg, #58cf8f, #69dc82 )',
 
     }
+
     Toastify(option).showToast()
 
 }
-runToast()
+
 
 const gerWords = () => {
     axios
@@ -70,21 +55,41 @@ const init = () => {
 
 //게임초기화
 
+const lastScore = () => {
+    wordDisplay.innerText = "최종 스코어는 \n ' " + scoreDisplay.innerText + " ' 점 입니다!!"
+    wordDisplay.style.color = "red"
+    wordDisplay.style.fontWeight = "bold"
+}
+const resetDisplayTxt = () => {
+    wordDisplay.style.color = "#9d0ca5"
+    wordDisplay.style.fontWeight = "300"
+}
+
+
+
+
 function timeReset() {
     clearInterval(timeInterval);
     wordInput.removeEventListener("input", checkMach);
     bar.classList.remove("animation");
     btn.classList.remove("loading");
     button.innerText = "Reset";
+    stopBtn.classList.add("loading");
+
     btn.disabled = false;
     stopBtn.disabled = true;
-    stopBtn.classList.add("loading");
+
+
 }
 
 function reset() {
-    time = 120;
+    resetDisplayTxt()
+
+
+    time = SETTING_TIME;
     score = 0;
     timeDisplay.innerText = time;
+
     button.innerText = "Playing Now";
     btn.disabled = false;
 
@@ -99,6 +104,7 @@ function reset() {
 //제한시간
 
 const countDown = () => {
+
     if (time > 0) {
         time--;
 
@@ -108,10 +114,15 @@ const countDown = () => {
 
     if (time == 0) {
         timeReset();
+        lastScore();
+
+
     } else {
         wordInput.addEventListener("input", checkMach);
         bar.classList.add("animation");
+
     }
+
 };
 
 //게임시작
@@ -159,9 +170,26 @@ function stopTime() {
     if ((stopBtn.disabled = true)) {
         clearInterval(timeInterval);
         timeReset();
+        lastScore();
     }
 }
 
 //getting Ready
 
 init();
+
+
+
+
+// const mediaSize = window.matchMedia('(min-width: 768px)');
+// const changeMedia = (e) => {
+//     if (e.matches) {
+
+//         console.log('매치됨');
+//     }
+// }
+
+
+// changeMedia(mediaSize);
+
+// mediaSize.addListener(changeMedia);
