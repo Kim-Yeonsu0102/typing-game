@@ -24,6 +24,7 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    word-break: keep-all;
 }
 
 :focus-visible {
@@ -97,21 +98,29 @@ body {
 /* 게임 플레이 존 */
 
 .section {
-    width: 40%;
+    width: 60%;
 }
 
 .word-display {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-width: 80%;
     margin-top: 5rem;
-    font-size: 2rem;
+    font-size: 3rem;
     letter-spacing: -0.5px;
-    word-break: keep-all;
     color: #9d0ca5;
     font-family: "SUIT-Medium";
-    min-height: 120px;
+    min-height: 200px;
+}
+
+.lastScore {
+    color: #598bcf;
+    font-weight: bold;
+    font-family: "SBAggroB";
+    margin-top: 10px;
+    font-size: 4rem;
 }
 
 .word-input-box {
@@ -157,32 +166,24 @@ body {
 }
 
 button {
-    width: 25%;
+    width: 40%;
     margin: 0 10px;
+    margin-top: 1.5rem;
+    padding: 1rem 1.6rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    font-family: "Goyang";
+    cursor: pointer;
 }
 
 .button {
-    margin-top: 1.5rem;
-    padding: 1rem 1.6rem;
-    border-radius: 5px;
     background: #c181c4;
-    color: #fff;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-    font-family: "Goyang";
-    cursor: pointer;
 }
 
 .button02 {
-    margin-top: 1.5rem;
-    padding: 1rem 1.6rem;
-    border-radius: 5px;
     background: #ff406a;
-    color: #fff;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-    font-family: "Goyang";
-    cursor: pointer;
 }
 
 .loading {
@@ -197,7 +198,29 @@ button {
     visibility: hidden;
 }
 
-@media (max-width: 767px) {
+@media all and (min-width:769px) and (max-width:1023px) {
+    .header {
+        font-size: 1rem;
+        padding: 30px 0;
+    }
+    .word-display {
+        font-size: 4.3rem;
+        min-height: 200px;
+        flex-direction: column;
+    }
+    .lastScore {
+        font-size: 5rem;
+    }
+    .word-input {
+        min-height: 80px;
+        font-size: 2rem;
+    }
+    button {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
     .section {
         width: 90%;
     }
@@ -207,9 +230,18 @@ button {
     }
     .word-display {
         margin: 60px 0;
+        font-size: 6rem;
+        min-height: 200px;
+        flex-direction: column;
+    }
+    .fontSize {
         font-size: 3rem;
+    }
+    .lastScore {
+        font-size: 6rem;
     }
     button {
         width: 65%;
+        font-size: 1.6rem;
     }
 }

@@ -14,9 +14,7 @@ const stopBtn = document.getElementById("stop");
 const button = document.querySelector(".button");
 const bar = document.querySelector(".progress__bar");
 const checkBtn = document.getElementById("check_btn");
-
-
-
+const lastScoreNum = document.querySelector(".lastScore");
 
 runToast = (text) => {
     const option = {
@@ -24,17 +22,14 @@ runToast = (text) => {
         duration: 1000,
         newWindow: true,
         offset: {
-            x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: 120 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+            x: 0,
+            y: 120,
         },
-        position: 'center',
+        position: "center",
+    };
 
-    }
-
-    Toastify(option).showToast()
-
-}
-
+    Toastify(option).showToast();
+};
 
 const gerWords = () => {
     axios
@@ -56,17 +51,22 @@ const init = () => {
 //게임초기화
 
 const lastScore = () => {
-    wordDisplay.innerText = "최종 스코어는 \n ' " + scoreDisplay.innerText + " ' 점 입니다!!"
-    wordDisplay.style.color = "red"
-    wordDisplay.style.fontWeight = "bold"
-}
+    let lastScoreTxt = `최종 스코어 <br/> <span class="lastScore"> ${scoreDisplay.innerText+"점"} </span>  `;
+
+    wordDisplay.innerHTML = lastScoreTxt;
+    wordDisplay.classList.add("fontSize")
+    wordDisplay.style.color = "#999";
+    // wordDisplay.style.fontSize = "2rem"
+
+
+    // score.style.color = "#598bcf";
+};
 const resetDisplayTxt = () => {
-    wordDisplay.style.color = "#9d0ca5"
-    wordDisplay.style.fontWeight = "300"
-}
-
-
-
+    wordDisplay.style.color = "#9d0ca5";
+    wordDisplay.classList.remove("fontSize")
+    const randomIndex = Math.floor(Math.random() * words.length);
+    wordDisplay.innerText = words[randomIndex];
+};
 
 function timeReset() {
     clearInterval(timeInterval);
@@ -78,13 +78,10 @@ function timeReset() {
 
     btn.disabled = false;
     stopBtn.disabled = true;
-
-
 }
 
 function reset() {
-    resetDisplayTxt()
-
+    resetDisplayTxt();
 
     time = SETTING_TIME;
     score = 0;
@@ -98,13 +95,10 @@ function reset() {
     }
 
     wordInput.value = "";
-    const randomIndex = Math.floor(Math.random() * words.length);
-    wordDisplay.innerText = words[randomIndex];
 }
 //제한시간
 
 const countDown = () => {
-
     if (time > 0) {
         time--;
 
@@ -115,14 +109,10 @@ const countDown = () => {
     if (time == 0) {
         timeReset();
         lastScore();
-
-
     } else {
         wordInput.addEventListener("input", checkMach);
         bar.classList.add("animation");
-
     }
-
 };
 
 //게임시작
@@ -133,16 +123,13 @@ const checkMach = () => {
 
     if (inputValue === wordDisplayTxt) {
         score += 10;
-        runToast("Great!!")
-
+        runToast("Great!!");
 
         wordInput.value = "";
         const randomIndex = Math.floor(Math.random() * words.length);
 
         wordDisplay.innerText = words[randomIndex];
     }
-
-
 
     scoreDisplay.innerText = score;
 
@@ -178,9 +165,6 @@ function stopTime() {
 
 init();
 
-
-
-
 // const mediaSize = window.matchMedia('(min-width: 768px)');
 // const changeMedia = (e) => {
 //     if (e.matches) {
@@ -188,7 +172,6 @@ init();
 //         console.log('매치됨');
 //     }
 // }
-
 
 // changeMedia(mediaSize);
 
