@@ -26,7 +26,7 @@ runToast = (text) => {
         newWindow: true,
         offset: {
             x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: 120 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+            y: 110 // vertical axis - can be a number or a string indicating unity. eg: '2em'
         },
         position: 'center',
 

@@ -134,7 +134,7 @@ body {
 
 .word-input {
     width: 100%;
-    min-height: 30px;
+    min-height: 50px;
     padding: 0.5rem;
     border-radius: 5px;
     border: 1px solid #c181c4;
@@ -202,21 +202,28 @@ button {
     visibility: hidden;
 }
 
-@media all and (min-width: 769px) and (max-width: 1023px) {
+@media all and (min-width: 768px) and (max-width: 1023px) {
     .header {
         font-size: 1rem;
         padding: 30px 0;
+    }
+    .section {
+        width: 90%;
     }
     .word-display {
         font-size: 4.3rem;
         min-height: 200px;
         flex-direction: column;
     }
+    .lastScoreText {
+        font-size: 3rem;
+    }
     .lastScore {
         font-size: 5rem;
     }
-    .lastScoreText {
-        font-size: 3rem;
+    .word-input-box {
+        margin-top: 2rem;
+        min-width: 98%;
     }
     .word-input {
         min-height: 80px;
@@ -227,7 +234,7 @@ button {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .section {
         width: 90%;
     }
@@ -236,19 +243,24 @@ button {
         padding: 30px 0;
     }
     .word-display {
-        margin: 60px 0;
-        font-size: 6rem;
-        min-height: 200px;
+        margin: 5px 0;
+        font-size: 3rem;
+        min-height: 150px;
         flex-direction: column;
     }
     .lastScoreText {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .lastScore {
-        font-size: 6rem;
+        font-size: 4rem;
+    }
+    .word-input-box {
+        margin-top: 1rem;
+        min-width: 98%;
     }
     button {
-        width: 65%;
-        font-size: 1.6rem;
+        width: 40%;
+        font-size: .8rem;
+        margin: 10px 0;
     }
 }
