@@ -123,6 +123,10 @@ body {
     font-size: 4rem;
 }
 
+.lastScoreText {
+    font-size: 3rem;
+}
+
 .word-input-box {
     margin-top: 4rem;
     min-width: 98%;
@@ -211,6 +215,9 @@ button {
     .lastScore {
         font-size: 5rem;
     }
+    .lastScoreText {
+        font-size: 3rem;
+    }
     .word-input {
         min-height: 80px;
         font-size: 2rem;
@@ -234,7 +241,7 @@ button {
         min-height: 200px;
         flex-direction: column;
     }
-    .fontSize {
+    .lastScoreText {
         font-size: 3rem;
     }
     .lastScore {
